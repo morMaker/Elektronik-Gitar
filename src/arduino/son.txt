@@ -1,0 +1,40 @@
+};
+
+int frekans[]={0,261,294,329,349,392,440,493}; 
+int butonlar[]={11,12,13,A0,A1,A2,A3};
+int ledler[]={4,5,6,7,8,9,10};
+
+void setup(){
+    Serial.begin(9600);
+    pinMode(3,OUTPUT);
+    for(int i=0;i<sizeof(butonlar)/sizeof(butonlar[0]);++i)
+        pinMode(butonlar[i],INPUT);
+    for(int i=0;i<sizeof(ledler)/sizeof(ledler[0]);++i)
+        pinMode(ledler[i],OUTPUT);
+}
+
+bool basilimi(int pin){
+    if(11<=pin && pin<=13)
+        return digitalRead(pin);
+    return analogRead(pin)>900;
+}
+
+void cal(int nota,int sure){
+    if(nota==0)
+        return delay(sure);
+    digitalWrite(ledler[nota-1],HIGH);
+    while(basilimi(butonlar[nota-1])==false){}
+    tone(3,frekans[nota]);
+    delay(sure);
+    digitalWrite(ledler[nota-1], LOW);
+    while(basilimi(butonlar[nota-1])){}
+    noTone(3);
+    delay(20);
+}
+
+void loop(){
+    for(int i=0;i<sizeof(ar)/sizeof(ar[0]);++i)
+        cal(ar[i].deger,ar[i].uzunluk*25);
+
+    delay(2000);
+}

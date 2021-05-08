@@ -1,0 +1,8 @@
+#include<Arduino.h>
+
+typedef struct nota{
+    int deger;
+    int uzunluk;
+}nota;
+
+nota ar[]={
