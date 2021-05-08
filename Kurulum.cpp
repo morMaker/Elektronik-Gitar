@@ -47,6 +47,7 @@ int main(){
 // Uygulama oluşturma
     cout<<"\nUygulama olusturuluyor...\n";
     komut="xcopy \".\\src\\Elektronik Gitar.lnk\" \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\" /Y > log 2>&1 ";
+    komut+="&& copy \".\\src\\Elektronik Gitar.lnk\" \"C:\\Users\\%username%\\Desktop\" ";
     system(&komut[0]);
 
 // DLL :D
