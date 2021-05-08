@@ -434,4 +434,9 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 *.tlog
 
-src/
+!*.exe
+Elektronik Gitar/
+Elektronik Gitar.sln
+!src/dll/**
+!src/tmp/.tmp
+Kurulum.cpp
