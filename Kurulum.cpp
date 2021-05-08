@@ -5,101 +5,112 @@
 using namespace std;
 
 int main(){
-    string komut="";
-    cout<<"***Kurulum basladi. Klasorler olusturuluyor...***\n";
+    int a= system("xcopy \".\\src\\Elektronik Gitar.lnk\" \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\" /Y > log 2>&1");
+    if(a!=0){
+        cout<<"Erisim engellendi. Lutfen bu dosyayi yonetici olarak calistiriniz.\n";
+        cout<<"Devam etmek icin bir tusa basin...";
+        system("del log");
+        getchar();
+        return 0;
+    }
+    cout<<"Kurulum basladi. Klasorler olusturuluyor...\n";
+
 // Klasör Oluşturma
-    komut+="cd \"C:\\Program Files\" ";
-    komut+="&& cd morMaker";
-    int a = system(&komut[0]);
+    string komut="";
+    komut+="cd \"C:\\Program Files\" > log 2>&1 ";
+    komut+="&& cd morMaker > log 2>&1";
+    a = system(&komut[0]);
     if(a)
-        system("cd \"C:\\Program Files\"  && md morMaker");
+        system("cd \"C:\\Program Files\"  && md morMaker > log 2>&1");
     system(&komut[0]);
-    system( &(komut+"&& rd /s /q elektronik-gitar")[0] );
-    komut+="&& md elektronik-gitar";
+    system( &(komut+"&& rd /s /q elektronik-gitar > log 2>&1")[0] );
+    komut+="&& md elektronik-gitar > log 2>&1";
     system(&komut[0]);
 
     komut="";
     string dizin="\"C:\\Program Files\\morMaker\\elektronik-gitar";
 
 // Verileri kopyalama
-    cout<<"\n***Dosyalar kopyalaniyor.***\n\n";
-    komut+="xcopy /E /I .\\src\\arduino "+dizin+"\\arduino\" ";
-    komut+="&& xcopy \".\\src\\Elektronik Gitar.exe\" "+dizin+"\" /Y";
-    komut+="&& xcopy .\\src\\app.ico "+dizin+"\"";
+    cout<<"\nDosyalar kopyalaniyor...\n";
+    komut+="xcopy /E /I .\\src\\arduino "+dizin+"\\arduino\" > log 2>&1 ";
+    komut+="&& xcopy \".\\src\\Elektronik Gitar.exe\" "+dizin+"\" /Y > log 2>&1";
+    komut+="&& xcopy .\\src\\app.ico "+dizin+"\" > log 2>&1";
     system(&komut[0]);
 
 // Gerekli izinleri sağlama
+    cout<<"\nGerekli izinler saglaniyor...\n";
     komut="cd C:\\Program Files\\morMaker\\elektronik-gitar\\arduino";
-    komut+="&& icacls . /grant Users:F";
-    komut+="&& icacls . /grant Users:(OI)(CI)F";
+    komut+="&& icacls . /grant Users:F > log 2>&1";
+    komut+="&& icacls . /grant Users:(OI)(CI)F > log 2>&1";
     system(&komut[0]);
     
 // Uygulama oluşturma
-    cout<<"\n***Uygulama olusturuluyor***\n\n";
-    komut="xcopy \".\\src\\Elektronik Gitar.lnk\" \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\" /Y ";
+    cout<<"\nUygulama olusturuluyor...\n";
+    komut="xcopy \".\\src\\Elektronik Gitar.lnk\" \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\" /Y > log 2>&1 ";
     system(&komut[0]);
 
 // DLL :D
-    cout<<"\n***Sistem taraniyor, lutfen bu ekrani kapatmayin...***\n";
-    // system("sfc/scannow");
+    cout<<"\nSistem taraniyor, lutfen bu ekrani kapatmayin...\n";
+    // system("sfc/scannow > log 2>&1");
     dizin="C:\\WINDOWS\\system32";
-    cout<<"\n***Eksik DLL dosyalari araniyor (system32)...***\n";
+    cout<<"\nEksik DLL dosyalari araniyor (system32)...\n";
 
-    komut="copy "+ dizin + "\\msvcp140d.dll .\\src\\tmp" ;
+    komut="copy "+ dizin + "\\msvcp140d.dll .\\src\\tmp > log 2>&1" ;
     a=system(&komut[0]);
     if(a){
-        komut="copy .\\src\\dll\\32\\msvcp140d.dll C:\\WINDOWS\\system32";
+        komut="copy .\\src\\dll\\32\\msvcp140d.dll C:\\WINDOWS\\system32 > log 2>&1";
         system(&komut[0]);
-        cout<<"\nmsvcp140d.dll kopyalandi.\n"; 
+        cout<<"\n\tmsvcp140d.dll kopyalandi.\n"; 
     }
 
-    komut="copy "+ dizin + "\\ucrtbased.dll .\\src\\tmp" ;
+    komut="copy "+ dizin + "\\ucrtbased.dll .\\src\\tmp > log 2>&1" ;
     a=system(&komut[0]);
     if(a){
-        komut="\ncopy .\\src\\dll\\32\\ucrtbased.dll C:\\WINDOWS\\system32";
+        komut="\ncopy .\\src\\dll\\32\\ucrtbased.dll C:\\WINDOWS\\system32 > log 2>&1";
         system(&komut[0]);
-        cout<<"\nucrtbased.dll kopyalandi.\n"; 
+        cout<<"\n\tucrtbased.dll kopyalandi.\n"; 
     }
 
-    komut="copy "+ dizin + "\\vcruntime140d.dll .\\src\\tmp" ;
+    komut="copy "+ dizin + "\\vcruntime140d.dll .\\src\\tmp > log 2>&1" ;
     a=system(&komut[0]);
     if(a){
-        komut="copy .\\src\\dll\\32\\vcruntime140d.dll C:\\WINDOWS\\system32";
+        komut="copy .\\src\\dll\\32\\vcruntime140d.dll C:\\WINDOWS\\system32 > log 2>&1";
         system(&komut[0]);
-        cout<<"\nvcruntime140d.dll kopyalandi.\n"; 
+        cout<<"\n\tvcruntime140d.dll kopyalandi.\n"; 
     }
-    if(system("cd C:\\Windows\\SysWOW64"))
+    if(system("cd C:\\Windows\\SysWOW64 > log 2>&1"))
         goto finito;
 
     ///////////////////////////////////////////////////////////////////////////////////
 
     dizin="C:\\Windows\\SysWOW64";
-    cout<<"\n***Eksik DLL dosyalari araniyor (SysWOW64)...***\n";
+    cout<<"\nEksik DLL dosyalari araniyor (SysWOW64)...\n";
 
-    komut="copy "+ dizin + "\\msvcp140d.dll .\\src\\tmp";
+    komut="copy "+ dizin + "\\msvcp140d.dll .\\src\\tmp > log 2>&1";
     a=system(&komut[0]);
     if(a){
-        komut="copy .\\src\\dll\\64\\msvcp140d.dll C:\\WINDOWS\\SysWOW64";
+        komut="copy .\\src\\dll\\64\\msvcp140d.dll C:\\WINDOWS\\SysWOW64 > log 2>&1";
         system(&komut[0]);
-        cout<<"\nmsvcp140d.dll kopyalandi.\n"; 
+        cout<<"\n\tmsvcp140d.dll kopyalandi.\n"; 
     }
 
-    komut="copy "+ dizin + "\\ucrtbased.dll .\\src\\tmp";
+    komut="copy "+ dizin + "\\ucrtbased.dll .\\src\\tmp > log 2>&1";
     a=system(&komut[0]);
     if(a){
-        komut="copy .\\src\\dll\\64\\ucrtbased.dll C:\\WINDOWS\\SysWOW64";
+        komut="copy .\\src\\dll\\64\\ucrtbased.dll C:\\WINDOWS\\SysWOW64 > log 2>&1";
         system(&komut[0]);
-        cout<<"\nucrtbased.dll kopyalandi.\n"; 
+        cout<<"\n\tucrtbased.dll kopyalandi.\n"; 
     }
 
-    komut="copy "+ dizin + "\\vcruntime140d.dll .\\src\\tmp";
+    komut="copy "+ dizin + "\\vcruntime140d.dll .\\src\\tmp > log 2>&1";
     a=system(&komut[0]);
     if(a){
-        komut="copy .\\src\\dll\\64\\vcruntime140d.dll C:\\WINDOWS\\SysWOW64";
+        komut="copy .\\src\\dll\\64\\vcruntime140d.dll C:\\WINDOWS\\SysWOW64 > log 2>&1";
         system(&komut[0]);
-        cout<<"\nvcruntime140d.dll kopyalandi.\n"; 
+        cout<<"\n\tvcruntime140d.dll kopyalandi.\n"; 
     }
     finito:
-    cout<<"\n***Kurulum tamamlandi. Simdi bu klasoru silebilirsiniz. Devam etmek icin bir tusa basin...***\n";
+    system("del log");
+    cout<<"\nKurulum tamamlandi. Simdi bu klasoru silebilirsiniz. Devam etmek icin bir tusa basin...\n";
     getchar();
 }
