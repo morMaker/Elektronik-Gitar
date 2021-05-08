@@ -5,6 +5,7 @@
 #include <msclr\marshal_cppstd.h>
 #include <fstream>
 #include <locale.h>
+#include <set>
 
 #pragma once
 
@@ -124,9 +125,9 @@ namespace ElektronikGitar {
 			// 
 			// lblPortSec
 			// 
-			this->lblPortSec->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblPortSec->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->lblPortSec->Font = (gcnew System::Drawing::Font(L"Verdana", 11.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			this->lblPortSec->ForeColor = System::Drawing::Color::Black;
 			this->lblPortSec->Location = System::Drawing::Point(3, 0);
 			this->lblPortSec->Name = L"lblPortSec";
 			this->lblPortSec->Size = System::Drawing::Size(98, 28);
@@ -136,15 +137,17 @@ namespace ElektronikGitar {
 			// 
 			// comboBox1
 			// 
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Verdana", 11.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Location = System::Drawing::Point(107, 3);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 21);
+			this->comboBox1->Size = System::Drawing::Size(86, 26);
 			this->comboBox1->TabIndex = 2;
 			// 
 			// btnMelodiEkle
 			// 
-			this->btnMelodiEkle->Font = (gcnew System::Drawing::Font(L"Verdana", 9, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnMelodiEkle->Font = (gcnew System::Drawing::Font(L"Verdana", 6.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(162)));
 			this->btnMelodiEkle->ForeColor = System::Drawing::SystemColors::Control;
 			this->btnMelodiEkle->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnMelodiEkle.Image")));
@@ -152,18 +155,20 @@ namespace ElektronikGitar {
 			this->btnMelodiEkle->Name = L"btnMelodiEkle";
 			this->btnMelodiEkle->Size = System::Drawing::Size(120, 32);
 			this->btnMelodiEkle->TabIndex = 0;
+			this->btnMelodiEkle->Text = L"MELODÝ EKLE";
 			this->btnMelodiEkle->UseVisualStyleBackColor = true;
 			this->btnMelodiEkle->Click += gcnew System::EventHandler(this, &Gitar::btnMelodiEkle_Click);
 			// 
 			// btnPanel
 			// 
-			this->btnPanel->BackColor = System::Drawing::SystemColors::Control;
+			this->btnPanel->BackColor = System::Drawing::Color::LightGray;
 			this->btnPanel->Controls->Add(this->lblPortSec);
 			this->btnPanel->Controls->Add(this->comboBox1);
 			this->btnPanel->Controls->Add(this->lblYerTutan);
 			this->btnPanel->Controls->Add(this->checkBoxDuzenle);
 			this->btnPanel->Controls->Add(this->panel_melodiEkleSil);
 			this->btnPanel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->btnPanel->ForeColor = System::Drawing::Color::Gray;
 			this->btnPanel->Location = System::Drawing::Point(0, 0);
 			this->btnPanel->Name = L"btnPanel";
 			this->btnPanel->Size = System::Drawing::Size(857, 661);
@@ -171,24 +176,25 @@ namespace ElektronikGitar {
 			// 
 			// lblYerTutan
 			// 
-			this->lblYerTutan->BackColor = System::Drawing::SystemColors::Control;
+			this->lblYerTutan->BackColor = System::Drawing::Color::LightGray;
 			this->lblYerTutan->Enabled = false;
-			this->lblYerTutan->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei", 12, System::Drawing::FontStyle::Underline, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(162)));
-			this->lblYerTutan->ForeColor = System::Drawing::SystemColors::GrayText;
-			this->lblYerTutan->Location = System::Drawing::Point(234, 0);
+			this->lblYerTutan->Font = (gcnew System::Drawing::Font(L"Verdana", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Underline)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			this->lblYerTutan->ForeColor = System::Drawing::Color::Gray;
+			this->lblYerTutan->Location = System::Drawing::Point(199, 0);
 			this->lblYerTutan->Name = L"lblYerTutan";
-			this->lblYerTutan->Size = System::Drawing::Size(529, 28);
+			this->lblYerTutan->Size = System::Drawing::Size(563, 28);
 			this->lblYerTutan->TabIndex = 4;
 			this->lblYerTutan->Text = L"Düzenlenecek Melodiyi Seçiniz";
 			this->lblYerTutan->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// checkBoxDuzenle
 			// 
-			this->checkBoxDuzenle->Font = (gcnew System::Drawing::Font(L"Oswald", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+			this->checkBoxDuzenle->Font = (gcnew System::Drawing::Font(L"Verdana", 9, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
-			this->checkBoxDuzenle->ForeColor = System::Drawing::Color::DarkSeaGreen;
-			this->checkBoxDuzenle->Location = System::Drawing::Point(769, 3);
+			this->checkBoxDuzenle->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->checkBoxDuzenle->Location = System::Drawing::Point(768, 3);
 			this->checkBoxDuzenle->Name = L"checkBoxDuzenle";
 			this->checkBoxDuzenle->Size = System::Drawing::Size(85, 28);
 			this->checkBoxDuzenle->TabIndex = 6;
@@ -208,13 +214,15 @@ namespace ElektronikGitar {
 			// 
 			// btnMelodiSil
 			// 
-			this->btnMelodiSil->Font = (gcnew System::Drawing::Font(L"Oswald", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnMelodiSil->Font = (gcnew System::Drawing::Font(L"Verdana", 6.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(162)));
+			this->btnMelodiSil->ForeColor = System::Drawing::SystemColors::Control;
 			this->btnMelodiSil->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnMelodiSil.Image")));
 			this->btnMelodiSil->Location = System::Drawing::Point(0, 31);
 			this->btnMelodiSil->Name = L"btnMelodiSil";
 			this->btnMelodiSil->Size = System::Drawing::Size(120, 32);
 			this->btnMelodiSil->TabIndex = 0;
+			this->btnMelodiSil->Text = L"MELODÝ SÝL";
 			this->btnMelodiSil->UseVisualStyleBackColor = true;
 			this->btnMelodiSil->Click += gcnew System::EventHandler(this, &Gitar::btnMelodiSil_Click);
 			// 
@@ -235,6 +243,7 @@ namespace ElektronikGitar {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::Control;
 			this->ClientSize = System::Drawing::Size(857, 661);
 			this->Controls->Add(this->btnPanel);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
@@ -257,12 +266,26 @@ namespace ElektronikGitar {
 		int ekleSay = 0;
 		int silSay = 0;
 
-	bool turkceVarMi(String^ sarki) {
+	bool ozelKarakterVarMi(String^ sarki) {
 		for each (char s in sarki) {
-			if (!((s <= 'z' && s >= 'a') || (s <= 'Z' && s >= 'A') || (s <= '9' && s >= '0') || (s == ' ') || (s == '_') || (s == '&') || (s == '(') || (s == ')') || (s == '[') || (s == ']') || (s == '{') || (s == '}') ||(s == '!') || (s == '^'))) {
+			if (s == '"' || s == '\\' || s == '/' || s == ':' || s == '?' || s == '<' || s == '>' || s == '|') {
 				return true;
 			}
 		}
+		return false;
+	}
+
+	bool ayniAddaVarMi(String^ sarki) {
+
+		ifstream fin("arduino/txts/_butonlar.txt");
+		string buttonname;
+		while (getline(fin, buttonname)) {
+			if (buttonname == msclr::interop::marshal_as<std::string>(sarki)) {
+				fin.close();
+				return true;
+			}
+		}
+		fin.close();
 		return false;
 	}
 		
@@ -318,7 +341,6 @@ namespace ElektronikGitar {
 			komut += "&& arduino-cli.exe core install arduino:avr";
 			komut += "&& arduino-cli core upgrade";
 			system(&komut[0]);
-
 			komut = "cd arduino";
 			komut += "&& arduino-cli.exe sketch new main";
 			komut += "&& type bas.txt > main/main.ino";
@@ -340,11 +362,14 @@ namespace ElektronikGitar {
 	private: System::Void Yenile(System::Object^ sender, System::EventArgs^ e) {
 		Button^ btnEkleSil = safe_cast<Button^>(sender);
 		if (btnEkleSil->AccessibleDescription == "Ekle") {
-			if (turkceVarMi(melodiEkrani->txtSarkiAdi->Text)) {
-				MessageBox::Show("Melodinin Adý Türkçe veya \" _ & { [ ( ) ] } ! ^ ve {boþluk} \" Dýþýndaki Özel Karakterleri Ýçermemelidir.");
+			if (ozelKarakterVarMi(melodiEkrani->txtSarkiAdi->Text)) {
+				MessageBox::Show("Melodinin Adý \\ / : \" ? < > | Karakterlerini Ýçermemelidir.");
 			}
 			else if (melodiEkrani->txtSarkiAdi->Text == "") {
 				MessageBox::Show("Melodinin Bir Adý Olmalý.");
+			}
+			else if (ayniAddaVarMi(melodiEkrani->txtSarkiAdi->Text)) {
+				MessageBox::Show("Ayný Adda Birden Fazla Melodi Olamaz.");
 			}
 			else if (melodiEkrani->txtMelodi->Text == "") {
 				MessageBox::Show("Lütfen Melodinize Nota ve Vuruþ Bilgisi Girin.");
@@ -352,10 +377,14 @@ namespace ElektronikGitar {
 			else if (melodiEkrani->txtSarkiAdi->Text == "_butonlar") {
 				MessageBox::Show("Bu Ad Kullanýlamaz.");
 			}
+			else if (melodiEkrani->lenBeat == 0) {
+				MessageBox::Show("Lütfen Vuruþ Bilgisi Girin.");
+			}
 			else {
 				String^ melodi;
 				string Melodi;
 				string sarki = msclr::interop::marshal_as<std::string>(melodiEkrani->txtSarkiAdi->Text);
+				
 				for (int i = 0; i < melodiEkrani->lenBeat; i++) {
 					melodi += "{" + System::Convert::ToString(melodiEkrani->notes[i]) + ",";
 					if (i == melodiEkrani->lenBeat - 1) {
@@ -441,7 +470,7 @@ namespace ElektronikGitar {
 	}
 
 	private: System::Void Gitar_Resize(System::Object^ sender, System::EventArgs^ e) {
-		lblYerTutan->Width = this->Width - 344;
+		lblYerTutan->Width = this->Width - 310;
 	}
 
 	private: System::Void checkBoxDuzenle_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {

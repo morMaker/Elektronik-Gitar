@@ -59,7 +59,7 @@ namespace ElektronikGitar {
 			this->ClientSize = System::Drawing::Size(562, 479);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Piyano";
-			this->Text = L"Piyano";
+			this->Text = L"Piyano: Melodiler";
 			this->ResumeLayout(false);
 
 		}

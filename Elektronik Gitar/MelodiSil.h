@@ -71,9 +71,9 @@ namespace ElektronikGitar {
 			// 
 			// lblMelodiSil
 			// 
-			this->lblMelodiSil->Font = (gcnew System::Drawing::Font(L"Oswald", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblMelodiSil->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->lblMelodiSil->Font = (gcnew System::Drawing::Font(L"Verdana", 14.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			this->lblMelodiSil->ForeColor = System::Drawing::Color::Black;
 			this->lblMelodiSil->Location = System::Drawing::Point(12, 9);
 			this->lblMelodiSil->Name = L"lblMelodiSil";
 			this->lblMelodiSil->Size = System::Drawing::Size(483, 30);
@@ -93,7 +93,7 @@ namespace ElektronikGitar {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->BackColor = System::Drawing::Color::LightGray;
 			this->ClientSize = System::Drawing::Size(507, 432);
 			this->Controls->Add(this->chckBxPanel);
 			this->Controls->Add(this->lblMelodiSil);
@@ -126,7 +126,8 @@ namespace ElektronikGitar {
 			this->Controls->Add(checkBox2);
 			checkBox2->AutoSize = true;
 			checkBox2->Text = marshal_as<String^>(buttonname);
-			checkBox2->Font = (gcnew System::Drawing::Font(L"Montserrat", 9.749999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			checkBox2->Font = (gcnew System::Drawing::Font(L"Verdana", 9.75F, static_cast<System::Drawing::FontStyle>(System::Drawing::FontStyle::Bold), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			checkBox2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)));;
 			chckBxPanel->Controls->Add(checkBox2);
 		}
 		fin.close();

@@ -127,8 +127,8 @@ namespace ElektronikGitar {
 			// 
 			// txtMelodi
 			// 
-			this->txtMelodi->Font = (gcnew System::Drawing::Font(L"Ink Free", 12.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->txtMelodi->Font = (gcnew System::Drawing::Font(L"Verdana", 11.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
 			this->txtMelodi->Location = System::Drawing::Point(12, 44);
 			this->txtMelodi->Multiline = true;
 			this->txtMelodi->Name = L"txtMelodi";
@@ -139,24 +139,28 @@ namespace ElektronikGitar {
 			// 
 			// label1
 			// 
-			this->label1->Font = (gcnew System::Drawing::Font(L"Constantia", 12, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
+			this->label1->Font = (gcnew System::Drawing::Font(L"Verdana", 11.25F, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
 				| System::Drawing::FontStyle::Underline)), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->label1->Location = System::Drawing::Point(12, 240);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(239, 23);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"__________Notalar__________";
+			this->label1->Text = L"_______Notalar_______";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label2
 			// 
-			this->label2->Font = (gcnew System::Drawing::Font(L"Constantia", 12, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
-				| System::Drawing::FontStyle::Underline)), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->label2->Font = (gcnew System::Drawing::Font(L"Verdana", 11.25F, static_cast<System::Drawing::FontStyle>(((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)
+				| System::Drawing::FontStyle::Underline)), System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->label2->Location = System::Drawing::Point(249, 240);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(241, 23);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"__________Vuruşlar__________";
+			this->label2->Text = L"_______Vuruşlar_______";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// btnDo
@@ -378,9 +382,9 @@ namespace ElektronikGitar {
 			// 
 			// lblSarkiAdi
 			// 
-			this->lblSarkiAdi->Font = (gcnew System::Drawing::Font(L"Montserrat", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblSarkiAdi->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->lblSarkiAdi->Font = (gcnew System::Drawing::Font(L"Verdana", 11.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			this->lblSarkiAdi->ForeColor = System::Drawing::Color::Black;
 			this->lblSarkiAdi->Location = System::Drawing::Point(12, 12);
 			this->lblSarkiAdi->Name = L"lblSarkiAdi";
 			this->lblSarkiAdi->Size = System::Drawing::Size(126, 28);
@@ -389,11 +393,11 @@ namespace ElektronikGitar {
 			// 
 			// txtSarkiAdi
 			// 
-			this->txtSarkiAdi->Font = (gcnew System::Drawing::Font(L"Oswald", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->txtSarkiAdi->Font = (gcnew System::Drawing::Font(L"Verdana", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(162)));
 			this->txtSarkiAdi->Location = System::Drawing::Point(134, 8);
 			this->txtSarkiAdi->Name = L"txtSarkiAdi";
-			this->txtSarkiAdi->Size = System::Drawing::Size(356, 27);
+			this->txtSarkiAdi->Size = System::Drawing::Size(356, 26);
 			this->txtSarkiAdi->TabIndex = 130;
 			// 
 			// btnVurusUzat
@@ -416,7 +420,7 @@ namespace ElektronikGitar {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
-			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->BackColor = System::Drawing::Color::LightGray;
 			this->ClientSize = System::Drawing::Size(502, 483);
 			this->Controls->Add(this->txtSarkiAdi);
 			this->Controls->Add(this->lblSarkiAdi);
@@ -443,7 +447,7 @@ namespace ElektronikGitar {
 			this->MaximumSize = System::Drawing::Size(518, 522);
 			this->MinimumSize = System::Drawing::Size(518, 522);
 			this->Name = L"MelodiEkrani";
-			this->Text = L"Melodi Ekleme";
+			this->Text = L"Melodi Ekle";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MelodiEkrani::MelodiEkrani_FormClosing);
 			this->ResumeLayout(false);
 			this->PerformLayout();

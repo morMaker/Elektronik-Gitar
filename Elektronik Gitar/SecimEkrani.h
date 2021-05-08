@@ -83,9 +83,10 @@ namespace ElektronikGitar {
 			// label1
 			// 
 			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Showcard Gothic", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Red;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Verdana", 32.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->label1->Location = System::Drawing::Point(56, 26);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(417, 130);
@@ -111,13 +112,15 @@ namespace ElektronikGitar {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->BackColor = System::Drawing::Color::LightGray;
 			this->ClientSize = System::Drawing::Size(527, 552);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnPiyano);
 			this->Controls->Add(this->btnGitar);
 			this->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximumSize = System::Drawing::Size(543, 591);
+			this->MinimumSize = System::Drawing::Size(543, 591);
 			this->Name = L"SecimEkrani";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Elektronik Gitar";
